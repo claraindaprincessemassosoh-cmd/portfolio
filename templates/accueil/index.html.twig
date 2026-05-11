@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil — Clarainda Massosoh{% endblock %}
+
+{% block body %}
+
+<div class="hero">
+  <div class="hero-tag">E-Portfolio · IUT de Roanne</div>
+  <h1>Clarainda<br><em>Massosoh</em></h1>
+  <p class="hero-sub">Étudiante BUT Réseaux &amp; Télécommunications · 2ème année · En recherche d'alternance</p>
+  <div class="hero-actions">
+    <a href="{{ path('competences') }}" class="btn-p">
+      <i class="ti ti-award" aria-hidden="true"></i> Voir mes compétences
+    </a>
+    <a href="https://github.com/claraindaprincessemassosoh-cmd" target="_blank" class="btn-g">
+      <i class="ti ti-brand-github" aria-hidden="true"></i> GitHub
+    </a>
+  </div>
+</div>
+
+<div class="about-grid">
+  <div class="about-cell">
+    <div class="acl">Formation</div>
+    <div class="acv">BUT R&amp;T · IUT Roanne</div>
+  </div>
+  <div class="about-cell">
+    <div class="acl">Année</div>
+    <div class="acv">2ème année (2025-2026)</div>
+  </div>
+  <div class="about-cell">
+    <div class="acl">Localisation</div>
+    <div class="acv">Saint-Étienne / Roanne</div>
+  </div>
+  <div class="about-cell">
+    <div class="acl">Disponibilité</div>
+    <div class="acv">Alternance · Recherche active</div>
+  </div>
+</div>
+
+<div class="home-sec">
+  <div class="sec-label">Compétences du référentiel BUT R&amp;T</div>
+  <div class="rt-cards">
+    {% for comp in competences %}
+    <div class="rt-card">
+      <div class="rt-num">{{ comp.code }}</div>
+      <div class="rt-title">{{ comp.titre }}</div>
+      <div class="rt-desc">{{ comp.desc }}</div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="sec-label" style="padding: 0 1.5rem 0.8rem;">Technologies maîtrisées</div>
+<div class="pill-row">
+  {% for tech in technologies %}
+    <span class="pill">{{ tech }}</span>
+  {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hobbies — Clarainda Massosoh{% endblock %}
+
+{% block body %}
+
+<div class="hob-hdr">
+  <h2>Hobbies &amp; Centres d'intérêt</h2>
+  <p>Ce qui me définit en dehors des réseaux et des routeurs</p>
+</div>
+
+<div class="hob-grid">
+  {% for hobby in hobbies %}
+  <div class="hob-card">
+    <div class="hob-icon">
+      <i class="ti {{ hobby.icon }}" aria-hidden="true" style="font-size:28px; color:{{ hobby.couleur }};"></i>
+    </div>
+    <div class="hob-name">{{ hobby.nom }}</div>
+    <div class="hob-desc">{{ hobby.desc }}</div>
+    <div class="hob-tags">
+      {% for tag in hobby.tags %}
+        <span class="hob-tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

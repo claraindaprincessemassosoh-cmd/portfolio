@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compétences — Clarainda Massosoh{% endblock %}
+
+{% block body %}
+
+<div class="comp-hdr">
+  <h2>Compétences</h2>
+  <p>Référentiel officiel BUT R&amp;T · Apprentissages critiques validés</p>
+  <div class="ctabs">
+    <button class="ctab active" onclick="goComp('rt1', this)">RT1 · Administrer</button>
+    <button class="ctab" onclick="goComp('rt2', this)">RT2 · Connecter</button>
+    <button class="ctab" onclick="goComp('rt3', this)">RT3 · Créer</button>
+  </div>
+</div>
+
+<div class="comp-body">
+
+  {% for key, rt in {'rt1': rt1, 'rt2': rt2, 'rt3': rt3} %}
+  <div id="{{ key }}" class="cpanel {% if key == 'rt1' %}active{% endif %}">
+
+    <div class="comp-intro">
+      <div class="comp-intro-title">{{ key|upper }} — {{ rt.titre }}</div>
+      <div class="comp-intro-desc">{{ rt.desc }}</div>
+      <div class="tag-row">
+        {% for tag in rt.tags %}
+          <span class="tag {% if tag in rt.tags_done %}g{% endif %}">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="sec-label">Apprentissages critiques — Niveau 1</div>
+
+    <div class="ac-list">
+      {% for ac in rt.acs %}
+      <div class="ac-item {% if ac.done %}done{% endif %}">
+        <span class="ac-code">{{ ac.code }}</span>
+        <span class="ac-text">{{ ac.texte }}</span>
+        <i class="ti ti-check ac-check" aria-hidden="true"></i>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div>
+  {% endfor %}
+
+</div>
+
+{% endblock %}

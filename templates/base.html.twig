@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Clarainda Massosoh — E-Portfolio R&T{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-logo">clarainda.portfolio</div>
+  <div class="nav-links">
+    <a href="{{ path('accueil') }}" class="nav-btn {% if app.request.attributes.get('_route') == 'accueil' %}active{% endif %}">
+      <i class="ti ti-home" aria-hidden="true"></i> Accueil
+    </a>
+    <a href="{{ path('competences') }}" class="nav-btn {% if app.request.attributes.get('_route') == 'competences' %}active{% endif %}">
+      <i class="ti ti-award" aria-hidden="true"></i> Compétences
+    </a>
+    <a href="{{ path('hobbies') }}" class="nav-btn {% if app.request.attributes.get('_route') == 'hobbies' %}active{% endif %}">
+      <i class="ti ti-heart" aria-hidden="true"></i> Hobbies
+    </a>
+    <a href="{{ path('contact') }}" class="nav-btn {% if app.request.attributes.get('_route') == 'contact' %}active{% endif %}">
+      <i class="ti ti-mail" aria-hidden="true"></i> Contact
+    </a>
+  </div>
+</nav>
+
+<main>
+  {% block body %}{% endblock %}
+</main>
+
+<footer class="footer">
+  <span>© 2026 Clarainda Massosoh · IUT de Roanne · BUT R&T</span>
+  <a href="https://github.com/claraindaprincessemassosoh-cmd" target="_blank" class="footer-gh">
+    <i class="ti ti-brand-github" aria-hidden="true"></i> GitHub
+  </a>
+</footer>
+
+<script src="{{ asset('js/main.js') }}"></script>
+</body>
+</html>
